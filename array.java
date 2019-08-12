@@ -10,7 +10,7 @@ public class Arrays {
      * *
      * Category : Data Structure
      * Solved Date : 2019-08-08
-     * Author : TK Lee
+     * Author : Daniel Lee
      *
      * Source : https://www.hackerrank.com/challenges/arrays-ds/problem
      */
