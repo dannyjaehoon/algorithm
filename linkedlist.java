@@ -44,12 +44,13 @@ public class Solution {
 
     static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
         SinglyLinkedListNode current = head;
-        SinglyLinkedListNode prev = head;
-        while(current != null) {
-            prev = current;
+        if(head ==  null) {
+            return head = new SinglyLinkedListNode(data);
+        }
+        while(current.next != null) {
             current = current.next;
         }
-        prev.next = new SinglyLinkedListNode(data);
+        current.next = new SinglyLinkedListNode(data);
         return head;
     }
 
