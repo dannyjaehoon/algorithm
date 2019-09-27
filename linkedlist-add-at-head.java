@@ -56,12 +56,11 @@ public class Solution {
     static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
         SinglyLinkedListNode currentNode = llist;
         if(currentNode == null) {
-            currentNode = new SinglyLinkedListNode(data);
+            llist = new SinglyLinkedListNode(data);
         }
         SinglyLinkedListNode newNode =  new SinglyLinkedListNode(data);
         newNode.next = currentNode;
-        llist = newNode;
-        return llist;
+        return newNode;
 
     }
 
