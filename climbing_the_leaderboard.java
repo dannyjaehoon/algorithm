@@ -11,36 +11,34 @@ public class Solution {
     // Complete the climbingLeaderboard function below.
     static int[] climbingLeaderboard(int[] scores, int[] alice) {
 
-    //  scores are in descending order
-    // alica are in ascending order
-
-    int[] leaderboard_scores = new int[];
-    //check the scroes for duplicated numbers
-    for(int i = 0; i< scores.length; i++) {
-        if(i == scores.length-1) {
-            leaderboard_scores[i] = scores[i];
-            break;
-        }
-        if(scores[i] != scores[i+1]) {
-            leaderboard_scores[i] = scores[i];
-        } else {
-            i++;
-        }
-    }
-
-    int[] alice_rank = new int[];
-    //print rank, insert the score into the leaderboard
-    for(int i = 0; i<alice.length; i++) {
-        for(int j=0; j<leaderboard_scores.length; i++) {
-            if(alica[i] > leaderboard_scores[j]) {
-                int pos = j;
-                //insert the number into the scores
+        int[] leaderboard_scores = new int[scores.length];
+        // check the scroes for duplicated numbers
+        int count_score = 0;
+        for (int i = 0; i < scores.length; i++) {
+            if (i == scores.length - 1) {
+                leaderboard_scores[count_score] = scores[i];
+                break;
+            }
+            if (scores[i] != scores[i + 1]) {
+                leaderboard_scores[count_score++] = scores[i];
             }
         }
-        alice_rank.push(findIndex(leaderboard_scores, i));
-    } 
 
-    return alice_rank;
+        int[] alice_rank = new int[alice.length];
+        int count = 0;
+        // print rank, insert the score into the leaderboard
+        for (int i = 0; i < alice.length; i++) {
+            for (int j = 0; j < leaderboard_scores.length; j++) {
+                if (alice[i] > leaderboard_scores[j]) {
+                    int rank = j + 1;
+                    // push an index into an return_array as a rank
+                    alice_rank[count] = rank;
+                    count++;
+                    break;
+                }
+            }
+        }
+        return alice_rank;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
